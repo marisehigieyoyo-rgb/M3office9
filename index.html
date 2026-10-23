@@ -1,49 +1,553 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3 Office International | Real Estate Advisory</title>
-    <meta name="description" content="Premier New York-based real estate advisory and luxury property investment firm located at 405 Lexington Ave.">
+    <title>M3 Office International | Premier Real Estate Investment</title>
     
-    <!-- Real Estate Schema Markup to separate brand from commercial furniture -->
+    <!-- Real Estate Business Schema (JSON-LD) for Search & AI Differentiation -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
       "name": "M3 Office International",
       "url": "https://m3officeinternational.org",
-      "logo": "https://m3officeinternational.org/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "405 Lexington Ave",
-        "addressLocality": "New York",
-        "addressRegion": "NY",
-        "postalCode": "10174",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-347-261-0449",
-      "priceRange": "$$$$"
+      "telephone": "+13472610449",
+      "description": "Premier international real estate advisory and luxury residential property investment group."
     }
     </script>
-</head>
-<body>
-    <header>
-        <h1>M3 Office International</h1>
-        <p>Real Estate Advisory & Investment Firm | New York, NY</p>
-    </header>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <main>
-        <section>
-            <h2>Strategic Real Estate Advisory</h2>
-            <p>Specializing in high-end residential acquisitions, architectural estates, and strategic portfolio management across prime East Coast markets.</p>
-            <p><strong>Office:</strong> 405 Lexington Ave, New York, NY 10174</p>
-            <p><strong>Contact:</strong> <a href="mailto:info@m3officeinternational.org">info@m3officeinternational.org</a> | +1 (347) 261-0449</p>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: {
+                            50: '#FDFCF9',
+                            100: '#F7F4EE',
+                            200: '#EFECE6',
+                            300: '#D8CFBC',
+                            400: '#C5A880',
+                            500: '#A88B60',
+                        },
+                        obsidian: {
+                            800: '#242428',
+                            900: '#18181A',
+                            950: '#0F0F10',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F0F10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A88B60;
+        }
+        
+        .beige-gradient-text {
+            background: linear-gradient(135deg, #F7F4EE 0%, #D8CFBC 50%, #C5A880 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-transition {
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .swipe-track {
+            touch-action: pan-y;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+    </style>
+</head>
+<body class="bg-obsidian-950 text-beige-100 font-sans antialiased selection:bg-beige-400 selection:text-obsidian-950 flex flex-col min-h-screen">
+
+    <!-- Announcement Bar -->
+    <div class="bg-obsidian-900 border-b border-beige-400/20 text-xs py-2.5 px-4 text-beige-200">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-6">
+                <a href="tel:+13472610449" class="hover:text-beige-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-beige-400 text-xs"></i>
+                    <span>+1 (347) 261-0449</span>
+                </a>
+                <a href="mailto:info@m3officeinternational.org" class="hover:text-beige-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-beige-400 text-xs"></i>
+                    <span>info@m3officeinternational.org</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-4 text-beige-300/80 uppercase tracking-widest text-[10px]">
+                <span>Private Advisory</span>
+                <span>•</span>
+                <span>Asset Management</span>
+                <span>•</span>
+                <span>Portfolio Acquisitions</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-obsidian-950/90 backdrop-blur-md border-b border-beige-400/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded bg-obsidian-900 border border-beige-400/30 flex items-center justify-center p-2">
+                    <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-beige-400">
+                        <path d="M20 90 V 30 L 50 10 L 80 30 V 90 H 65 V 50 H 35 V 90 Z" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <path d="M35 35 H 45 V 45 H 35 Z M 55 35 H 65 V 45 H 55 Z M 35 55 H 45 V 65 H 35 Z M 55 55 H 65 V 65 H 55 Z" fill="currentColor"/>
+                        <line x1="10" y1="90" x2="90" y2="90" stroke="currentColor" stroke-width="4"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl tracking-wider text-beige-50 font-bold uppercase leading-none">M3 Office</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-beige-400 font-semibold mt-1">International Real Estate</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium text-beige-200">
+                <a href="#hero" class="hover:text-beige-400 transition-colors">Overview</a>
+                <a href="#about" class="hover:text-beige-400 transition-colors">About Us</a>
+                <a href="#properties" class="hover:text-beige-400 transition-colors">Properties</a>
+                <a href="#contact" class="hover:text-beige-400 transition-colors">Contact</a>
+            </nav>
+
+            <button onclick="openConsultationModal('General Portfolio Consultation')" class="hidden lg:block px-6 py-2.5 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">
+                Private Consultation
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-obsidian-950 py-24 px-4">
+            <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000');"></div>
+            <div class="absolute inset-0 z-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/85 to-obsidian-950/70"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-obsidian-900/90 border border-beige-400/30 text-beige-300 text-xs font-medium uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-beige-400 animate-pulse"></span>
+                    Architectural Excellence &amp; Investment
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-tight text-beige-50">
+                    Discover Exceptional <br/>
+                    <span class="font-normal italic beige-gradient-text">Home Investment</span>
+                </h1>
+
+                <p id="about" class="max-w-3xl mx-auto text-beige-200 text-base sm:text-lg font-light leading-relaxed bg-obsidian-900/60 p-6 sm:p-8 rounded-2xl border border-beige-400/15 backdrop-blur-md">
+                    At <strong class="text-beige-50">M3 Office International</strong>, we connect visionary investors with New York and America’s most distinctive luxury residences. Our curated portfolio brings together architectural mastery, prime high-growth East Coast locations, and unmatched long-term investment stability.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#properties" class="px-8 py-4 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">Explore Portfolio Below</a>
+                    <a href="#contact" class="px-8 py-4 bg-obsidian-900/90 hover:bg-obsidian-800 text-beige-100 border border-beige-400/30 font-semibold text-xs uppercase tracking-widest rounded transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-beige-400"></i> Direct Advisory
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="properties" class="py-24 bg-obsidian-950 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-beige-400">Featured Holdings</p>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light text-beige-50">Private Residence Collection</h2>
+                    <div class="w-16 h-0.5 bg-beige-400 mx-auto"></div>
+                </div>
+
+                <div class="space-y-20">
+                    <!-- Property 1: Manhattan -->
+                    <article class="bg-obsidian-900 border border-beige-400/20 rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="grid grid-cols-1 lg:grid-cols-12">
+                            <div class="lg:col-span-7 relative h-[350px] sm:h-[420px] lg:h-full min-h-[380px] bg-obsidian-950 overflow-hidden cursor-grab active:cursor-grabbing swipe-track" id="slideshow-prop1">
+                                <!-- 5 Slides -->
+                                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200" alt="Grand Architectural Facade" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-100 z-1 pointer-events-none">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200" alt="Skyline Terrace" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200" alt="Grand Living Room" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=1200" alt="Chef's Kitchen" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1200" alt="Primary Suite" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+
+                                <div class="absolute top-4 right-4 bg-obsidian-950/80 border border-beige-400/20 px-2.5 py-1 rounded text-[10px] text-beige-300 font-mono flex items-center gap-1.5 z-20 pointer-events-none">
+                                    <i class="fa-solid fa-hand-pointer text-beige-400 animate-pulse"></i> Swipe or Click
+                                </div>
+
+                                <button onclick="changeSlide('prop1', -1)" aria-label="Previous Slide" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button onclick="changeSlide('prop1', 1)" aria-label="Next Slide" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-auto">
+                                    <div class="bg-obsidian-950/85 border border-beige-400/20 px-3 py-1.5 rounded text-xs text-beige-200 font-medium tracking-wide shadow-lg">
+                                        <span class="slide-label">Grand Architectural Facade</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 bg-obsidian-950/85 px-3 py-1.5 rounded-full border border-beige-400/20">
+                                        <button onclick="goToSlide('prop1', 0)" class="dot-btn w-5 h-2 rounded-full bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop1', 1)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop1', 2)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop1', 3)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop1', 4)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                                <div>
+                                    <p class="text-beige-400 text-xs uppercase font-semibold">Manhattan, New York</p>
+                                    <h3 class="font-serif text-3xl text-beige-50 mt-1">Manhattan Skyline Penthouse</h3>
+                                    <p class="text-sm text-beige-300 font-light mt-3">An architectural masterpiece featuring floor-to-ceiling glass, private elevator landing, wraparound terrace, and panoramic city views.</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 border-y border-beige-400/15 py-4 text-center text-xs">
+                                    <div><p class="text-beige-400">Bedrooms</p><p class="text-base font-serif">5 Beds</p></div>
+                                    <div><p class="text-beige-400">Bathrooms</p><p class="text-base font-serif">6 Baths</p></div>
+                                    <div><p class="text-beige-400">Interior</p><p class="text-base font-serif">8,500 Sq Ft</p></div>
+                                </div>
+                                <button onclick="openConsultationModal('Manhattan Skyline Penthouse')" class="w-full py-3.5 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">Inquire Concerning Acquisition</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Property 2: The Hamptons -->
+                    <article class="bg-obsidian-900 border border-beige-400/20 rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="grid grid-cols-1 lg:grid-cols-12">
+                            <div class="lg:col-span-7 relative h-[350px] sm:h-[420px] lg:h-full min-h-[380px] bg-obsidian-950 overflow-hidden cursor-grab active:cursor-grabbing swipe-track" id="slideshow-prop2">
+                                <!-- 5 Slides -->
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200" alt="Hamptons Estate Entrance" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-100 z-1 pointer-events-none">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200" alt="Oceanfront Pool Deck" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200" alt="Modernist Double-Height Living Lounge" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&q=80&w=1200" alt="Chef's Quartz Kitchen" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200" alt="Private Estate Fitness Gym" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+
+                                <div class="absolute top-4 right-4 bg-obsidian-950/80 border border-beige-400/20 px-2.5 py-1 rounded text-[10px] text-beige-300 font-mono flex items-center gap-1.5 z-20 pointer-events-none">
+                                    <i class="fa-solid fa-hand-pointer text-beige-400 animate-pulse"></i> Swipe or Click
+                                </div>
+
+                                <button onclick="changeSlide('prop2', -1)" aria-label="Previous Slide" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button onclick="changeSlide('prop2', 1)" aria-label="Next Slide" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-auto">
+                                    <div class="bg-obsidian-950/85 border border-beige-400/20 px-3 py-1.5 rounded text-xs text-beige-200 font-medium tracking-wide shadow-lg">
+                                        <span class="slide-label">Hamptons Estate Entrance</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 bg-obsidian-950/85 px-3 py-1.5 rounded-full border border-beige-400/20">
+                                        <button onclick="goToSlide('prop2', 0)" class="dot-btn w-5 h-2 rounded-full bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop2', 1)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop2', 2)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop2', 3)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop2', 4)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                                <div>
+                                    <p class="text-beige-400 text-xs uppercase font-semibold">The Hamptons, New York</p>
+                                    <h3 class="font-serif text-3xl text-beige-50 mt-1">Hamptons Waterfront Estate</h3>
+                                    <p class="text-sm text-beige-300 font-light mt-3">Perched along prestigious coastal acreage, offering direct ocean views, private beach access, custom infinity pool, and pristine shingle-style architecture.</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 border-y border-beige-400/15 py-4 text-center text-xs">
+                                    <div><p class="text-beige-400">Bedrooms</p><p class="text-base font-serif">7 Beds</p></div>
+                                    <div><p class="text-beige-400">Bathrooms</p><p class="text-base font-serif">9 Baths</p></div>
+                                    <div><p class="text-beige-400">Interior</p><p class="text-base font-serif">11,400 Sq Ft</p></div>
+                                </div>
+                                <button onclick="openConsultationModal('Hamptons Waterfront Estate')" class="w-full py-3.5 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">Inquire Concerning Acquisition</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Property 3: Greenwich -->
+                    <article class="bg-obsidian-900 border border-beige-400/20 rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="grid grid-cols-1 lg:grid-cols-12">
+                            <div class="lg:col-span-7 relative h-[350px] sm:h-[420px] lg:h-full min-h-[380px] bg-obsidian-950 overflow-hidden cursor-grab active:cursor-grabbing swipe-track" id="slideshow-prop3">
+                                <!-- 5 Slides -->
+                                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1200" alt="Greenwich Manor Facade" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-100 z-1 pointer-events-none">
+                                <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200" alt="Double-Height Timber Hearth" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&q=80&w=1200" alt="Heated Garden Lounge Terrace" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=80&w=1200" alt="Formal Dining Suite" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200" alt="Private Wine Cellar & Tasting Room" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+
+                                <div class="absolute top-4 right-4 bg-obsidian-950/80 border border-beige-400/20 px-2.5 py-1 rounded text-[10px] text-beige-300 font-mono flex items-center gap-1.5 z-20 pointer-events-none">
+                                    <i class="fa-solid fa-hand-pointer text-beige-400 animate-pulse"></i> Swipe or Click
+                                </div>
+
+                                <button onclick="changeSlide('prop3', -1)" aria-label="Previous Slide" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button onclick="changeSlide('prop3', 1)" aria-label="Next Slide" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-auto">
+                                    <div class="bg-obsidian-950/85 border border-beige-400/20 px-3 py-1.5 rounded text-xs text-beige-200 font-medium tracking-wide shadow-lg">
+                                        <span class="slide-label">Greenwich Manor Facade</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 bg-obsidian-950/85 px-3 py-1.5 rounded-full border border-beige-400/20">
+                                        <button onclick="goToSlide('prop3', 0)" class="dot-btn w-5 h-2 rounded-full bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop3', 1)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop3', 2)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop3', 3)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop3', 4)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                                <div>
+                                    <p class="text-beige-400 text-xs uppercase font-semibold">Greenwich, Connecticut</p>
+                                    <h3 class="font-serif text-3xl text-beige-50 mt-1">Greenwich Country Estate</h3>
+                                    <p class="text-sm text-beige-300 font-light mt-3">An elite gated equestrian sanctuary featuring historic stone masonry, grand double-height hearth, private tasting cellar, and expansive manicured lawns.</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 border-y border-beige-400/15 py-4 text-center text-xs">
+                                    <div><p class="text-beige-400">Bedrooms</p><p class="text-base font-serif">6 Beds</p></div>
+                                    <div><p class="text-beige-400">Bathrooms</p><p class="text-base font-serif">8 Baths</p></div>
+                                    <div><p class="text-beige-400">Interior</p><p class="text-base font-serif">12,000 Sq Ft</p></div>
+                                </div>
+                                <button onclick="openConsultationModal('Greenwich Country Estate')" class="w-full py-3.5 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">Inquire Concerning Acquisition</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Property 4: Palm Beach -->
+                    <article class="bg-obsidian-900 border border-beige-400/20 rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="grid grid-cols-1 lg:grid-cols-12">
+                            <div class="lg:col-span-7 relative h-[350px] sm:h-[420px] lg:h-full min-h-[380px] bg-obsidian-950 overflow-hidden cursor-grab active:cursor-grabbing swipe-track" id="slideshow-prop4">
+                                <!-- 5 Verified Working Image URLs -->
+                                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200" alt="Coastal Villa Facade" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-100 z-1 pointer-events-none">
+                                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1200" alt="Zero-Edge Infinity Pool" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&q=80&w=1200" alt="Sunlit Interior Living Room" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200" alt="Outdoor Kitchen & Lounge" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200" alt="Panoramic Ocean View Balcony" class="slide-img w-full h-full object-cover absolute inset-0 slide-transition opacity-0 pointer-events-none z-0">
+
+                                <div class="absolute top-4 right-4 bg-obsidian-950/80 border border-beige-400/20 px-2.5 py-1 rounded text-[10px] text-beige-300 font-mono flex items-center gap-1.5 z-20 pointer-events-none">
+                                    <i class="fa-solid fa-hand-pointer text-beige-400 animate-pulse"></i> Swipe or Click
+                                </div>
+
+                                <button onclick="changeSlide('prop4', -1)" aria-label="Previous Slide" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                                </button>
+                                <button onclick="changeSlide('prop4', 1)" aria-label="Next Slide" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-obsidian-950/75 hover:bg-beige-400 hover:text-obsidian-950 text-beige-100 border border-beige-400/30 flex items-center justify-center transition-all z-20">
+                                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                                </button>
+
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-auto">
+                                    <div class="bg-obsidian-950/85 border border-beige-400/20 px-3 py-1.5 rounded text-xs text-beige-200 font-medium tracking-wide shadow-lg">
+                                        <span class="slide-label">Coastal Villa Facade</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 bg-obsidian-950/85 px-3 py-1.5 rounded-full border border-beige-400/20">
+                                        <button onclick="goToSlide('prop4', 0)" class="dot-btn w-5 h-2 rounded-full bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop4', 1)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop4', 2)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop4', 3)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                        <button onclick="goToSlide('prop4', 4)" class="dot-btn w-2 h-2 rounded-full bg-beige-400/40 hover:bg-beige-400 transition-all"></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 p-8 flex flex-col justify-between space-y-6">
+                                <div>
+                                    <p class="text-beige-400 text-xs uppercase font-semibold">Palm Beach, Florida</p>
+                                    <h3 class="font-serif text-3xl text-beige-50 mt-1">Palm Beach Coastal Villa</h3>
+                                    <p class="text-sm text-beige-300 font-light mt-3">A magnificent seaside Mediterranean estate boasting coral stone masonry, zero-edge pool, private dock, and Atlantic ocean vistas.</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 border-y border-beige-400/15 py-4 text-center text-xs">
+                                    <div><p class="text-beige-400">Bedrooms</p><p class="text-base font-serif">6 Beds</p></div>
+                                    <div><p class="text-beige-400">Bathrooms</p><p class="text-base font-serif">7 Baths</p></div>
+                                    <div><p class="text-beige-400">Interior</p><p class="text-base font-serif">9,200 Sq Ft</p></div>
+                                </div>
+                                <button onclick="openConsultationModal('Palm Beach Coastal Villa')" class="w-full py-3.5 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">Inquire Concerning Acquisition</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-obsidian-900 border-t border-beige-400/15 px-4 text-center">
+            <div class="max-w-4xl mx-auto space-y-4">
+                <h2 class="font-serif text-3xl sm:text-4xl text-beige-50">Confidential Advisory</h2>
+                <p class="text-sm text-beige-300">
+                    Direct Line: <a href="tel:+13472610449" class="text-beige-400 underline">+1 (347) 261-0449</a> | Email: <a href="mailto:info@m3officeinternational.org" class="text-beige-400 underline">info@m3officeinternational.org</a>
+                </p>
+                <p class="text-xs text-beige-400/80 pt-2 font-mono">
+                    M3 Office International is a licensed international real estate advisory group. New York Department of State (DOS) Brokerage License #10991248201.
+                </p>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 M3 Office International Real Estate Advisory. All rights reserved.</p>
+    <footer class="bg-obsidian-950 border-t border-beige-400/15 py-8 text-center text-xs text-beige-400 space-y-2">
+        <p>&copy; 2026 M3 Office International. All Rights Reserved.</p>
+        <p class="text-[10px] text-beige-400/60">Equal Housing Opportunity. Brokerage license details verified per state regulatory standards.</p>
     </footer>
+
+    <!-- Consultation Modal -->
+    <div id="consultationModal" class="fixed inset-0 z-50 hidden bg-obsidian-950/85 flex items-center justify-center p-4">
+        <div class="bg-obsidian-900 border border-beige-400/30 w-full max-w-lg rounded-2xl p-6 relative">
+            <button onclick="closeConsultationModal()" class="absolute top-4 right-4 text-beige-400 hover:text-beige-100">✕</button>
+            <h3 class="font-serif text-2xl text-beige-50 mb-2">Acquisition Inquiry</h3>
+            <p id="modalTitle" class="text-xs text-beige-300 font-mono mb-4"></p>
+            <form onsubmit="alert('Inquiry submitted successfully.'); closeConsultationModal(); return false;" class="space-y-3 text-left">
+                <input type="text" required placeholder="Full Name" class="w-full p-3 bg-obsidian-950 border border-beige-400/20 rounded text-sm text-beige-100 focus:outline-none focus:border-beige-400">
+                <input type="email" required placeholder="Email Address" class="w-full p-3 bg-obsidian-950 border border-beige-400/20 rounded text-sm text-beige-100 focus:outline-none focus:border-beige-400">
+                <button type="submit" class="w-full py-3 bg-beige-100 hover:bg-beige-400 text-obsidian-950 font-semibold text-xs uppercase tracking-widest rounded transition-all">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        const slideshowState = {
+            prop1: 0,
+            prop2: 0,
+            prop3: 0,
+            prop4: 0
+        };
+
+        function updateSlideshowUI(propId) {
+            const container = document.getElementById(`slideshow-${propId}`);
+            if (!container) return;
+
+            const slides = container.querySelectorAll('.slide-img');
+            const label = container.querySelector('.slide-label');
+            const dots = container.querySelectorAll('.dot-btn');
+            const activeIdx = slideshowState[propId];
+
+            slides.forEach((slide, idx) => {
+                if (idx === activeIdx) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-1');
+                    if (label) label.innerText = slide.alt;
+                } else {
+                    slide.classList.remove('opacity-100', 'z-1');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+
+            dots.forEach((dot, idx) => {
+                if (idx === activeIdx) {
+                    dot.classList.remove('bg-beige-400/40', 'w-2');
+                    dot.classList.add('bg-beige-400', 'w-5');
+                } else {
+                    dot.classList.remove('bg-beige-400', 'w-5');
+                    dot.classList.add('bg-beige-400/40', 'w-2');
+                }
+            });
+        }
+
+        function changeSlide(propId, direction) {
+            const container = document.getElementById(`slideshow-${propId}`);
+            if (!container) return;
+            const totalSlides = container.querySelectorAll('.slide-img').length;
+            let current = slideshowState[propId];
+            current = (current + direction + totalSlides) % totalSlides;
+            slideshowState[propId] = current;
+            updateSlideshowUI(propId);
+        }
+
+        function goToSlide(propId, index) {
+            slideshowState[propId] = index;
+            updateSlideshowUI(propId);
+        }
+
+        function initSwipeSupport(propId) {
+            const container = document.getElementById(`slideshow-${propId}`);
+            if (!container) return;
+
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+            const threshold = 40;
+
+            container.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            }, { passive: true });
+
+            container.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                const diffX = startX - currentX;
+                if (Math.abs(diffX) > threshold && currentX !== 0) {
+                    if (diffX > 0) changeSlide(propId, 1);
+                    else changeSlide(propId, -1);
+                }
+                isDragging = false;
+                startX = 0;
+                currentX = 0;
+            });
+
+            container.addEventListener('mousedown', (e) => {
+                if (e.target.closest('button')) return;
+                startX = e.clientX;
+                isDragging = true;
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                currentX = e.clientX;
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                const diffX = startX - currentX;
+                if (Math.abs(diffX) > threshold && currentX !== 0) {
+                    if (diffX > 0) changeSlide(propId, 1);
+                    else changeSlide(propId, -1);
+                }
+                isDragging = false;
+                startX = 0;
+                currentX = 0;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            ['prop1', 'prop2', 'prop3', 'prop4'].forEach(id => initSwipeSupport(id));
+        });
+
+        function openConsultationModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('consultationModal').classList.remove('hidden');
+        }
+
+        function closeConsultationModal() {
+            document.getElementById('consultationModal').classList.add('hidden');
+        }
+    </script>
 </body>
 </html>
